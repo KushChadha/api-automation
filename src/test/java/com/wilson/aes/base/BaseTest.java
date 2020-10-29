@@ -13,8 +13,8 @@ public class BaseTest {
 	
 	@BeforeClass
 	public void setup() {
-		RestAssured.baseURI = "https://ecommerce-assortment-export-qa.services.west.nonprod.wsgc.com";
-		RestAssured.basePath = "/assortment/v1/pb/seasons";
+		RestAssured.baseURI = "";
+		RestAssured.basePath = "";
 		accessToken = auth.getAuthToken();
 	}
 

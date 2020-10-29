@@ -13,10 +13,10 @@ public class Auth {
 			given()
 				.relaxedHTTPSValidation()
 				.auth()
-				.basic("wcm/QA", "wcm4qa")
+				.basic("", "")
 				.param("grant_type", "client_credentials")
 			.when()
-				.post("https://webauth-qa-rk01v.wsgc.com/oauth/token")
+				.post("")
 			.then()
 				.statusCode(200)
 				.extract().response();
