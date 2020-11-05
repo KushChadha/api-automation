@@ -1,12 +1,8 @@
 package com.wilson.aes.season;
 
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
-import com.wilson.aes.base.BaseTest;
-
 import static io.restassured.RestAssured.given;
-import io.restassured.RestAssured;
+import org.testng.annotations.Test;
+import com.wilson.aes.base.BaseTest;
 import io.restassured.response.Response;
 
 public class GetSeasonsTest extends BaseTest{
