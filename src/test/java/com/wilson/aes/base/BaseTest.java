@@ -9,16 +9,15 @@ import io.restassured.RestAssured;
 
 public class BaseTest {
 	
-	Auth auth = new Auth();
-	PropertiesUtils properties = new PropertiesUtils();
+	public PropertiesUtils prop = new PropertiesUtils();
 	public String accessToken;
 	
 	@BeforeClass
 	public void setup() {
-		properties.loadProperties();
-		RestAssured.baseURI = properties.getProperty("baseURI");
-		RestAssured.basePath = properties.getProperty("basePath");
-		accessToken = auth.getAuthToken();
+		prop.loadProperties();
+		RestAssured.baseURI = prop.getProperty("baseURI");
+		RestAssured.basePath = prop.getProperty("basePath");
+		accessToken = Auth.getAuthToken();
 	}
 
 }

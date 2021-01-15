@@ -8,15 +8,14 @@ import io.restassured.response.Response;
 
 public class Auth {
 	
-	PropertiesUtils properties = new PropertiesUtils();
-	private String authToken;
+	public static PropertiesUtils properties = new PropertiesUtils();
+	private static String authToken;
 
-	private void postAuthToken() {
+	private static void postAuthToken() {
 		properties.loadProperties();
 		String uri = properties.getProperty("authURI");
 		String userName = properties.getProperty("authUserName");
 		String password = properties.getProperty("authPassword");
-		System.out.println("user name is " + uri);
 		Response res = 
 			given()
 				.relaxedHTTPSValidation()
@@ -33,7 +32,7 @@ public class Auth {
 	}
 	
 	
-	public String getAuthToken() {
+	public static String getAuthToken() {
 		postAuthToken();
 		return authToken;
 	}

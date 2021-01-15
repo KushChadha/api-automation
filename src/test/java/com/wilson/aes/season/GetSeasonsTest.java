@@ -2,8 +2,14 @@ package com.wilson.aes.season;
 
 import static io.restassured.RestAssured.given;
 import org.testng.annotations.Test;
+
+import com.wilsom.aes.utilities.RestUtilities;
 import com.wilson.aes.base.BaseTest;
+import com.wilson.aes.constants.EndPoints;
+
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 public class GetSeasonsTest extends BaseTest{
 	
@@ -21,13 +27,24 @@ public class GetSeasonsTest extends BaseTest{
 		given()
 			.relaxedHTTPSValidation()
 			.auth().oauth2(accessToken)
+			.pathParam("concept_code", prop.getProperty("concept_code"))
 		.when()
-			.get()
+			.get(EndPoints.SEASONS)
 		.then()
 			.statusCode(200)
 			.and().extract().response();
 		
 		System.out.println(response.prettyPrint());
+	}
+	
+//	RequestSpecBuilder requestBuilder;
+//	RequestSpecification requestSpec;
+	
+	@Test
+	public void getSeasonsUsingRequestSpecifications() {
+		RestUtilities.getRequestSpecification();
+		
+		
 	}
 
 }
